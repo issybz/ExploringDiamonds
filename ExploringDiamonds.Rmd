@@ -1,0 +1,69 @@
+---
+ctitle: "Exploring Diamonds"
+author: "Issy Belzil"
+date: '2017-09-21'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reading my diamonds dataset
+
+```{r}
+library(readxl)
+mydiamonds=read_excel("diamonds.xlsx")  
+```
+
+```{r}
+dim(mydiamonds) # dimensions
+```
+
+My answer to the question. 
+
+```{r}
+mydiamonds[50000,3]
+```
+
+Now I am going to see the first 6 rows using the head command
+
+```{r}
+head(mydiamonds)
+```
+
+Now I am going to see the last 6 rows 
+
+```{r}
+tail(mydiamonds)
+```
+
+Structure- and see what factors are numerical in nature
+
+```{r}
+str(mydiamonds)
+```
+
+Summarizing my data
+
+```{r}
+summary(mydiamonds)
+```
+
+## Making the cut variable a factor variable
+
+```{r}
+mydiamonds$cut=as.factor(mydiamonds$cut)
+summary(mydiamonds$cut)
+```
+
+```{r}
+mydiamonds$color=as.factor(mydiamonds$color)
+summary(mydiamonds$color)
+```
+
+```{r}
+table(mydiamonds$color,mydiamonds$cut)
+```
+
+
